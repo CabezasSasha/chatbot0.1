@@ -41,3 +41,24 @@ userInput.addEventListener('keydown', event => {
         sendButton.click();
     }
 });
+function sendMessage() {
+    var userInput = document.getElementById('user-input');
+    var messageContainer = document.getElementById('message-container');
+
+    var userMessage = document.createElement('div');
+    userMessage.className = 'user-message';
+    userMessage.innerText = userInput.value;
+
+    messageContainer.appendChild(userMessage);
+    userInput.value = '';
+
+    // Lógica del chatbot
+    // Aquí puedes procesar la respuesta del usuario y generar una respuesta del chatbot
+
+    var botMessage = document.createElement('div');
+    botMessage.className = 'bot-message';
+    botMessage.innerText = 'Respuesta del chatbot';
+
+    messageContainer.appendChild(botMessage);
+}
+
