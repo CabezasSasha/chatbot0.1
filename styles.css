@@ -1,0 +1,57 @@
+.chatbox {
+    width: 400px;
+    margin: auto;
+    background-color: #f7f7f7;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    font-family: sans-serif;
+}
+.chatbox h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.chatbox .conversation {
+    height: 300px;
+    overflow-y: scroll;
+}
+.chatbox .msg-container {
+    margin-bottom: 10px;
+}
+.chatbox .msg-container.user {
+    text-align: right;
+}
+.chatbox .msg-container.bot {
+    text-align: left;
+}
+.chatbox .msg-container .msg {
+    display: inline-block;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.chatbox .form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.chatbox .form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.chatbox .form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.chatbox .form button[type="submit"]:hover {
+    background-color: #006d9c;
+}
