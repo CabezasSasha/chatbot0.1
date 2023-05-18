@@ -24,10 +24,7 @@ def get_document():
     html_content = convert_to_html(document_text)
     return html_content
 
-# Obtener la respuesta del chatbot
-user_input = input("Usuario: ")
-bot_response = bot.get_response(user_input)
-print("Bot: ", bot_response)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
