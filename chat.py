@@ -1,11 +1,10 @@
-from docx import Document
 from bs4 import BeautifulSoup
+from docx import Document
 from flask import Flask, render_template, request
-from bot import train_chatbot, get_bot_response
-from document_parser import parse_document, convert_to_html
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-
+from bot import train_chatbot, get_bot_response
+from document_parser import parse_document, convert_to_html
 
 def train_chatbot():
     bot = ChatBot('myBot')
@@ -79,4 +78,4 @@ def get_document():
 
 
 if __name__ == "__main__":
-    app.run()
+     app.run(debug=True)
