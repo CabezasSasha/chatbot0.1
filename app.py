@@ -15,11 +15,12 @@ def get_response():
     user_text = request.form['msg']
     bot_response = get_bot_response(bot, user_text)
     return bot_response
- 
+
 @app.route("/document")
 def get_document():
-    file_path = 'nuevo.docx'
-    document_text = parse_document(file_path)
+  # Ruta del archivo .docx
+    ruta_archivo = 'nuevo.docx'
+    document_text = parse_document(ruta_archivo)
     html_content = convert_to_html(document_text)
     return html_content
 
