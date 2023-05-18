@@ -18,7 +18,7 @@ def get_response():
 
 @app.route("/document")
 def get_document():
-    file_path = 'puebla.docx'
+    file_path = 'nuevo.docx'
     document_text = parse_document(file_path)
     html_content = convert_to_html(document_text)
     return html_content
