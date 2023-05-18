@@ -2,9 +2,13 @@ from docx import Document
 from bs4 import BeautifulSoup
 
 def parse_document(file_path):
+    #Abrir el archivo .docx
     document = Document(file_path)
-    text = '\n'.join([paragraph.text for paragraph in document.paragraphs])
-    return text
+    # Extraer el texto del archivo .docx
+    text = ""
+    for paragraph in document.paragraphs:
+        text+=paragraph.text + "\n"
+   
 
 def convert_to_html(text):
     soup = BeautifulSoup(text, 'html.parser')
