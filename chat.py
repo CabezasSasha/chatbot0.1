@@ -3,8 +3,8 @@ from docx import Document
 from flask import Flask, render_template, request
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-from bot import train_chatbot, get_bot_response
-from document_parser import parse_document, convert_to_html
+
+app = Flask(__name__)
 
 def train_chatbot():
     bot = ChatBot('myBot')
@@ -36,27 +36,6 @@ def convertir_docx_a_html(ruta_archivo):
 
     return contenido_html
 
-# Ruta del archivo .docx
-ruta_archivo = 'nuevo.docx'
-
-# Convertir el archivo .docx a HTML
-contenido_html = convertir_docx_a_html(ruta_archivo)
-
-# Imprimir el contenido HTML resultante
-print(contenido_html)
-
-        
-  # Obtener el HTML generado
-def convert_to_html(text):
-    soup = BeautifulSoup(text, 'html.parser')
-    html_content = str(soup)
-    return html_content
-
-
-app = Flask(__name__)
-
-bot = train_chatbot()
-
 @app.route("/")
 def home():
     return render_template("Chatbot.html")
@@ -69,13 +48,12 @@ def get_response():
 
 @app.route("/document")
 def get_document():
-  # Ruta del archivo .docx
+    # Ruta del archivo .docx
     ruta_archivo = 'nuevo.docx'
-    document_text = parse_document(ruta_archivo)
-    html_content = convert_to_html(document_text)
-    return html_content
-
-
+    contenido_html = convertir_docx_a_html(ruta_archivo)
+    return contenido_html
 
 if __name__ == "__main__":
-     app.run(debug=True)
+    bot = train_chatbot()
+    app.run(debug=True)
+
