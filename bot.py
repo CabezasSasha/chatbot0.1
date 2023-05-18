@@ -9,3 +9,7 @@ def train_chatbot():
 
 def get_bot_response(bot, user_text):
     return str(bot.get_response(user_text))
+
+
+
+

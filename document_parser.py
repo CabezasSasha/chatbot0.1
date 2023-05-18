@@ -2,6 +2,8 @@ from docx import Document
 from bs4 import BeautifulSoup
 
 def parse_document(file_path):
+    # Ruta del archivo .docx
+    file_path = 'nuevo.docx'
     #Abrir el archivo .docx
     document = Document(file_path)
     # Extraer el texto del archivo .docx
@@ -14,3 +16,4 @@ def convert_to_html(text):
     soup = BeautifulSoup(text, 'html.parser')
     html_content = str(soup)
     return html_content
+
