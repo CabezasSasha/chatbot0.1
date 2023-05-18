@@ -3,8 +3,17 @@ from docx import Document
 from flask import Flask, render_template, request
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
+import time
+import pytz
+from datetime import datetime
 
 app = Flask(__name__)
+# Obtener la fecha y hora actual en la zona horaria de Argentina
+timezone = pytz.timezone('America/Argentina/Buenos_Aires')
+current_time = datetime.now(timezone)
+
+# Imprimir la fecha y hora actual
+print(current_time)
 
 def train_chatbot():
     bot = ChatBot('myBot')
@@ -38,6 +47,11 @@ def convertir_docx_a_html(ruta_archivo):
 
 @app.route("/")
 def home():
+    start_time = time.perf_counter()  # Inicio del tiempo de ejecución
+    # Resto del código para renderizar el template "Chatbot.html"
+    end_time = time.perf_counter()  # Fin del tiempo de ejecución
+    execution_time = end_time - start_time
+    print(f"Tiempo de ejecución: {execution_time} segundos")
     return render_template("Chatbot.html")
 
 @app.route('/get_response', methods=['POST'])
